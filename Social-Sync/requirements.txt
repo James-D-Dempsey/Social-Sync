@@ -1,0 +1,21 @@
+# Data manipulation and scientific computing
+pandas
+numpy
+
+# Machine learning
+scikit-learn
+
+# Spotify Web API integration
+spotipy
+
+# MySQL database connector
+mysql-connector-python
+
+# Environment variable management
+python-dotenv
+
+# Lightweight web framework (if building an API/backend)
+Flask
+
+# For making HTTP requests (often used with APIs)
+requests
