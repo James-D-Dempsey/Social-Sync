@@ -23,3 +23,7 @@ Backend: FastAPI server (backend/src/)
 Database: MySQL for persistent storage (credentials in .env)
 
 Integration Layer: Spotipy library handles OAuth and data fetching from Spotify
+
+![Social-Sync Architecture](Social-Sync\frontend\spotify-recs\public\architecture.png)
+
+---
