@@ -31,16 +31,15 @@ def insert_song(title, artist, genre, popularity):
     existing = cursor.fetchone()
 
     if existing:
-        print(f"⚠️ Song '{title}' by {artist} already exists. Skipping insert.")
+        print(f"Song '{title}' by {artist} already exists. Skipping insert.")
     else:
-        # Insert new song (no release_date)
         query = """
             INSERT INTO Songs (title, artist, genre, popularity)
             VALUES (%s, %s, %s, %s)
         """
         cursor.execute(query, (title, artist, genre, popularity))
         conn.commit()
-        print(f"✅ Inserted song '{title}' by {artist}' into the database.")
+        print(f" Inserted song '{title}' by {artist}' into the database.")
 
     cursor.close()
 
@@ -58,14 +57,12 @@ def insert_history(user_id, song_id, timestamp):
 
 def get_user_id(key: str):
     cur = conn.cursor()
-    # try spotify_id
     cur.execute("SELECT user_id FROM Users WHERE spotify_id = %s", (key,))
     row = cur.fetchone()
     if row:
         cur.close()
         return row[0]
 
-    # try display-name
     cur.execute("SELECT user_id FROM Users WHERE name = %s", (key,))
     row = cur.fetchone()
     cur.close()
@@ -107,7 +104,6 @@ def insert_recommendations(user_id: int, recs: list[tuple[int, float]]):
       INSERT INTO Recommendations (user_id, song_id, score)
       VALUES (%s, %s, %s)
     """
-    # recs is a list of (song_id, score)
     data = [(user_id, song_id, score) for song_id, score in recs]
     cur.executemany(sql, data)
     conn.commit()

@@ -1,6 +1,4 @@
 import pandas as pd
-from datetime import datetime
-from spotipy_client import get_spotify_client
 import mysql.connector
 
 from db_connector import (

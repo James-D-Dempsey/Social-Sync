@@ -18,10 +18,9 @@ def get_spotify_client(user_tag: str):
     print(f"Redirect URI in use: {SPOTIPY_REDIRECT_URI}")
 
     auth_url = auth_manager.get_authorize_url()
-    print(f"\n🔐 Launching incognito login for user tag: {user_tag}")
+    print(f"\n Launching incognito login for user tag: {user_tag}")
     print(f"If the browser doesn't open, paste this manually:\n{auth_url}\n")
 
     os.system(f'start chrome "{auth_url}"')
 
     return spotipy.Spotify(auth_manager=auth_manager)
-
